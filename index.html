@@ -177,49 +177,115 @@
         opacity: 70%;
 
       }
-      
+
       /* Work Section */
-.work-section {
-  padding: 100px 0;
-  position: relative;
-}
+      .work-section {
+        padding: 100px 0;
+        position: relative;
+      }
 
-.work-title {
-  font-family: 'TheScientist', cursive;
-  font-size: 40px;
-  color: white;
-  margin-bottom: 250px;
-  margin-left: 25px;
-}
+      .work-title {
+        font-family: 'TheScientist', cursive;
+        font-size: 40px;
+        color: white;
+        margin-bottom: 250px;
+        margin-left: 25px;
+      }
 
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 60px 80px;
-  max-width: 900px;
-}
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px 80px;
+        max-width: 900px;
+      }
 
-.work-item:nth-child(even) {
-  margin-top: 180px;  /* pushes right column images down */
-}     
-      
+      .work-item:nth-child(even) {
+        margin-top: 180px;
+        /* pushes right column images down */
+      }
 
-.work-item {
-  width: 330px;
-  height: auto;
-}
 
-.work-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 30px;
-  transition: transform 0.3s;
-}
+      .work-item {
+        width: 330px;
+        height: auto;
+      }
 
-.work-item img:hover {
-  transform: scale(1.05);
-}
+      .work-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 30px;
+        transition: transform 0.3s;
+      }
+
+      .work-item img:hover {
+        transform: scale(1.05);
+      }
+
+
+
+      /* Footer Section */
+      .footer-image-section {
+        position: absolute;
+        bottom: -800px;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .footer-image-section img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .footer-text-section {
+        position: absolute;
+        bottom: -1000px;
+        left: 0;
+        width: 100%;
+        padding: 60px 0;
+        z-index: 10;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-left a {
+        color: rgba(255, 169, 88, 1);
+        text-decoration: none;
+        font-size: 16px;
+        transition: opacity 0.3s;
+      }
+
+      .footer-left a:hover {
+        opacity: 0.7;
+      }
+
+      .footer-email {
+        color: rgba(255, 169, 88, 1);
+        font-size: 16px;
+        margin-top: 20px;
+      }
+
+      .footer-email a {
+        color: rgba(255, 169, 88, 1);
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+
+      .footer-email a:hover {
+        opacity: 0.7;
+      }
+
+      .footer-right {
+        color: rgba(131, 68, 9, 1);
+        font-size: 16px;
+      }
     </style>
   </head>
 
@@ -262,36 +328,58 @@
       <img src="angel 2.png" alt="Wing" class="wing-bottom-image">
 
       <div class="container" style="position: relative;">
-  <div class="quote-section">
-    <p class="quote-en">"Actions are judged by intentions."</p>
-    <p class="quote-ar">إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ</p>
-  </div>
-</div>
+        <div class="quote-section">
+          <p class="quote-en">"Actions are judged by intentions."</p>
+          <p class="quote-ar">إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ</p>
+        </div>
+      </div>
 
-<img src="ribs.png" alt="painted ribs" class="ribs-image">
+      <img src="ribs.png" alt="painted ribs" class="ribs-image">
 
-<div class="container work-section" style="position: absolute; bottom: -3500px; left: 0; z-index: 10">
-  <h2 class="work-title">Work</h2>
-  
-  <div class="work-grid">
-    <div class="work-item">
-      <img src="resonance.png" alt="Resonance project">
-    </div>
-    <div class="work-item">
-      <img src="alices.png" alt="Alice's project">
-    </div>
-    <div class="work-item">
-      <img src="trouble brewing.png" alt="Trouble Brewing project">
-    </div>
-    <div class="work-item">
-      <img src="flowers.png" alt="Flowers project">
-    </div>
-    <div class="work-item">
-      <img src="portrait.png" alt="Portrait project">
-    </div>
-    <div class="work-item">
-      <img src="wings.png" alt="Wings project">
-    </div>
+      <div class="container work-section" style="position: absolute; bottom: -3500px; left: 0; z-index: 10; margin-left: 100px;">
+        <h2 class="work-title">Work</h2>
+
+        <div class="work-grid">
+          <div class="work-item">
+            <img src="resonance.png" alt="Resonance project">
+          </div>
+          <div class="work-item">
+            <img src="alices.png" alt="Alice's project">
+          </div>
+          <div class="work-item">
+            <img src="trouble brewing.png" alt="Trouble Brewing project">
+          </div>
+          <div class="work-item">
+            <img src="flowers.png" alt="Flowers project">
+          </div>
+          <div class="work-item">
+            <img src="portrait.png" alt="Portrait project">
+          </div>
+          <div class="work-item">
+            <img src="wings.png" alt="Wings project">
+          </div>
+
+
+          <div class="footer-image-section">
+            <img src="footer.png" alt="Footer decoration">
+          </div>
+
+          <div class="footer-text-section">
+            <div class="container">
+              <div class="footer-content">
+                <div class="footer-left">
+                  <a href="https://www.instagram.com/hafsoo_art/" target="_blank">@hafsoo_art</a>
+                  <div class="footer-email">
+                    <a href="mailto:hafsanadeemabbasi@gmail.com">hafsanadeemabbasi@gmail.com</a>
+                  </div>
+                </div>
+
+                <div class="footer-right">
+                  <p>Hafsa Abbasi 2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
