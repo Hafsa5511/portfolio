@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+
+    <title>Hafsa Abbasi - Designer</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+        font-family: 'Ysabeau Infant', sans-serif;
+        position: relative;
+        min-height: 5500px;
+      }
+
+      .page-wrapper {
+        width: 1440px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      @font-face {
+        font-family: 'TheScientist';
+        src: url('TheScientist-L3EyW.ttf') format('truetype');
+      }
+
+      /* Navigation */
+
+      nav {
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        width: 100%;
+
+      }
+
+      nav .page-wrapper {
+
+        width: 1440px;
+        margin: 0 auto;
+
+      }
+
+      nav .container {
+        width: 800px;
+  margin: 0;  /* change from 'margin: 0 auto;' */
+  margin-left: 120px;  /* add specific left margin */
+  display: flex;
+  justify-content: flex-start;
+  gap: 80px;
+  padding: 30px 0;
+
+
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        transition: opacity 0.3s;
+
+      }
+
+      nav a:hover {
+        color: rgba(255, 169, 88, 1);
+
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 60px 0;
+        position: relative;
+      }
+
+      .signature {
+        font-family: 'TheScientist',  cursive;
+        font-size: 40px;
+        color: rgba(255, 169, 88, 1);
+        margin-top: 350px;
+        margin-bottom: 40px;
+        font-weight: 400;
+        margin-left: 25px; 
+  
+      }
+
+      .intro-text {
+         max-width: 600px;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 2.5;
+        letter-spacing: 0.3px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: 0.3px;
+        line-height: 2.5;
+      }
+
+      /* Wing Images */
+      .wing-top-image {
+        position: absolute;
+        right: 0;
+        top: -100px;
+        max-width: 900px;
+        z-index: 10;
+      }
+
+      .wing-bottom-image {
+        position: absolute;
+        left: 0;
+        bottom: -800px;
+        max-width: 900px;
+        z-index: 10;
+      }
+
+      /* Quote Section */
+      .quote-section {
+        position: absolute;
+        right: 10px;
+        bottom: -600px;
+        max-width: 600px;
+        text-align: right;
+        
+      }
+
+      .quote-en {
+        font-size: 16px;
+        font-weight: 300;
+        font-style: italic;
+        margin-bottom: 20px;
+        letter-spacing: 0.5px;
+        
+      }
+
+      .quote-ar {
+        font-size: 16px;
+        font-weight: 400;
+        direction: rtl;
+        letter-spacing: 1px;
+      }
+
+      .below-hero {
+        margin-top: 80px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <div>
+        <nav>
+          <div class="page-wrapper">
+            <div class="container">
+              <a href="#resume">Resume</a>
+              <a href="#work">Work</a>
+              <a href="#contact">contact</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="hero">
+        <div class="container">
+          <h1 class="signature">Hafsa Abbasi</h1>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="intro-text">
+      
+          
+          <p>A Toronto-based designer specializing in UX/UI, graphic design, and illustration.</p>
+          
+            <p>Focused on creating thoughtful, purposeful visual experiences that bring creative ideas to life.</p>
+        </div>
+
+        <img src="angel 1.png" alt="Wing" class="wing-top-image">
+      </div>
+
+      <div class="container" style="position: relative;">
+        <p>Skilled in Adobe Softwares, Figma, and HTML/CSS</p>
+      </div>
+
+      <img src="angel 2.png" alt="Wing" class="wing-bottom-image">
+
+      <div class="container" style="position: relative;">
+        <div class="quote-section">
+          <p class="quote-en">"Actions are judged by intentions."</p>
+          <p class="quote-ar">إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
