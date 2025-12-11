@@ -227,22 +227,22 @@
       /* Footer Section */
       .footer-image-section {
         position: absolute;
-        bottom: -800px;
-        left: 0;
+        top: 2900px;
+        right: 100px;
         width: 100%;
         z-index: 1;
+        
       }
 
       .footer-image-section img {
-        width: 100%;
-        height: 500px;
+        width: 1500px;
         object-fit: cover;
-        display: block;
+        
       }
 
       .footer-text-section {
         position: absolute;
-        bottom: -1000px;
+        top: 3300px;
         left: 0;
         width: 100%;
         padding: 60px 0;
@@ -251,7 +251,7 @@
 
       .footer-content {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
       }
 
@@ -260,6 +260,7 @@
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.3s;
+        
       }
 
       .footer-left a:hover {
@@ -276,16 +277,23 @@
         color: rgba(255, 169, 88, 1);
         text-decoration: none;
         transition: opacity 0.3s;
+        
       }
 
       .footer-email a:hover {
         opacity: 0.7;
       }
 
-      .footer-right {
-        color: rgba(131, 68, 9, 1);
-        font-size: 16px;
+        .Robintext {
+        position: absolute;
+        right: -50px;
+        bottom: 30px;
+        max-width: 600px;
+        line-height: 40px;
+        color: rgba(255, 169, 88, 1);
+          
       }
+      
     </style>
   </head>
 
@@ -359,8 +367,7 @@
             <img src="wings.png" alt="Wings project">
           </div>
 
-
-          <div class="footer-image-section">
+<div class="footer-image-section">
             <img src="footer.png" alt="Footer decoration">
           </div>
 
@@ -373,16 +380,23 @@
                     <a href="mailto:hafsanadeemabbasi@gmail.com">hafsanadeemabbasi@gmail.com</a>
                   </div>
                 </div>
+<div class="Robintext">
 
-                <div class="footer-right">
-                  <p>Hafsa Abbasi 2025</p>
-                </div>
+          <p>
+Hafsa Abbasi 2025
+          </p>
+        </div>
+                
               </div>
             </div>
           </div>
+          
 
         </div>
       </div>
     </div>
+    
+    
+    
   </body>
 </html>
