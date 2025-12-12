@@ -199,15 +199,12 @@
         max-width: 900px;
       }
 
-      .work-item:nth-child(even) {
-        margin-top: 180px;
-        /* pushes right column images down */
-      }
-
-
       .work-item {
         width: 330px;
         height: auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 30px;
       }
 
       .work-item img {
@@ -215,14 +212,117 @@
         height: auto;
         display: block;
         border-radius: 30px;
-        transition: transform 0.3s;
+        transition: all 0.3s;
       }
 
-      .work-item img:hover {
+      .work-item:hover img {
+        filter: brightness(0.4) blur(2px);
         transform: scale(1.05);
       }
 
+      /* Softer glowing borders - alternating colors */
+      .work-item:nth-child(odd) {
+        box-shadow: 0 0 0px rgba(135, 206, 250, 0);
+        transition: box-shadow 0.3s;
+      }
 
+      .work-item:nth-child(odd):hover {
+        box-shadow: 0 0 40px rgba(135, 206, 250, 0.4);
+      }
+
+      .work-item:nth-child(even) {
+        box-shadow: 0 0 0px rgba(255, 105, 180, 0);
+        transition: box-shadow 0.3s;
+      }
+
+      .work-item:nth-child(even):hover {
+        box-shadow: 0 0 40px rgba(255, 105, 180, 0.4);
+      }
+
+      /* Title overlay */
+      .work-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: left;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .work-item:hover .work-overlay {
+        opacity: 1;
+      }
+
+      .work-overlay h3 {
+        font-family: 'Ysabeau Infant', sans-serif;
+        font-size: 32px;
+        color: #fff;
+        margin-bottom: 10px;
+      }
+
+      .work-overlay p {
+        font-size: 16px;
+        color: #fff;
+        line-height: 1.5;
+      }
+
+      /* Particle container */
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .work-item:hover .particles {
+        opacity: 1;
+      }
+
+      .particle {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      /* Blue particles for odd items */
+      .work-item:nth-child(odd) .particle {
+        background: rgba(135, 206, 250, 0.7);
+        box-shadow: 0 0 10px rgba(135, 206, 250, 0.8);
+      }
+
+      /* Pink particles for even items */
+      .work-item:nth-child(even) .particle {
+        background: rgba(255, 105, 180, 0.7);
+        box-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 1;
+        }
+
+        90% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(-100px) translateX(var(--float-x));
+          opacity: 0;
+        }
+      }
 
       /* Footer Section */
       .footer-image-section {
@@ -231,13 +331,13 @@
         right: 100px;
         width: 100%;
         z-index: 1;
-        
+
       }
 
       .footer-image-section img {
         width: 1500px;
         object-fit: cover;
-        
+
       }
 
       .footer-text-section {
@@ -260,7 +360,7 @@
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.3s;
-        
+
       }
 
       .footer-left a:hover {
@@ -277,23 +377,22 @@
         color: rgba(255, 169, 88, 1);
         text-decoration: none;
         transition: opacity 0.3s;
-        
+
       }
 
       .footer-email a:hover {
         opacity: 0.7;
       }
 
-        .Robintext {
+      .Robintext {
         position: absolute;
         right: -50px;
         bottom: 30px;
         max-width: 600px;
         line-height: 40px;
         color: rgba(255, 169, 88, 1);
-          
+
       }
-      
     </style>
   </head>
 
@@ -350,24 +449,54 @@
         <div class="work-grid">
           <div class="work-item">
             <img src="resonance.png" alt="Resonance project">
+            <div class="particles"></div>
+            <div class="work-overlay">
+              <h3>Resonance. Client Poster & logo</h3>
+              <p>2024</p>
+            </div>
           </div>
           <div class="work-item">
             <img src="alices.png" alt="Alice's project">
+            <div class="particles"></div>
+            <div class="work-overlay">
+              <h3>Alice's Cafe. Website redesign</h3>
+              <p>2025</p>
+            </div>
           </div>
           <div class="work-item">
             <img src="trouble brewing.png" alt="Trouble Brewing project">
+            <div class="particles"></div>
+            <div class="work-overlay">
+              <h3>Children's book illustrations</h3>
+              <p>2023</p>
+            </div>
           </div>
           <div class="work-item">
             <img src="flowers.png" alt="Flowers project">
+            <div class="particles"></div>
+            <div class="work-overlay">
+              <h3>Newsletter</h3>
+              <p>2022</p>
+            </div>
           </div>
           <div class="work-item">
             <img src="portrait.png" alt="Portrait project">
+            <div class="particles"></div>
+            <div class="work-overlay">
+              <h3>Gender equality comic</h3>
+              <p>2023</p>
+            </div>
           </div>
           <div class="work-item">
             <img src="wings.png" alt="Wings project">
+            <div class="particles"></div>
+            <div class="work-overlay">
+              <h3>Grace Amid Ruin</h3>
+              <p>2024</p>
+            </div>
           </div>
 
-<div class="footer-image-section">
+          <div class="footer-image-section">
             <img src="footer.png" alt="Footer decoration">
           </div>
 
@@ -380,23 +509,65 @@
                     <a href="mailto:hafsanadeemabbasi@gmail.com">hafsanadeemabbasi@gmail.com</a>
                   </div>
                 </div>
-<div class="Robintext">
+                <div class="Robintext">
 
-          <p>
-Hafsa Abbasi 2025
-          </p>
-        </div>
-                
+                  <p>
+                    Hafsa Abbasi 2025
+                  </p>
+                </div>
+
               </div>
             </div>
           </div>
-          
+
 
         </div>
       </div>
     </div>
-    
-    
-    
+
+    <script>
+      // Create floating particles on hover
+      const workItems = document.querySelectorAll('.work-item');
+
+      workItems.forEach(item => {
+        const particlesContainer = item.querySelector('.particles');
+        let particleInterval;
+
+        item.addEventListener('mouseenter', () => {
+          particleInterval = setInterval(() => {
+            createParticle(particlesContainer);
+          }, 150);
+        });
+
+        item.addEventListener('mouseleave', () => {
+          clearInterval(particleInterval);
+        });
+      });
+
+      function createParticle(container) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+
+        const size = Math.random() * 4 + 2;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.bottom = '0';
+
+        const floatX = (Math.random() - 0.5) * 50;
+        particle.style.setProperty('--float-x', floatX + 'px');
+
+        const duration = Math.random() * 2 + 2;
+        particle.style.animation = `float ${duration}s ease-out forwards`;
+
+        container.appendChild(particle);
+
+        setTimeout(() => {
+          particle.remove();
+        }, duration * 1000);
+      }
+    </script>
+
   </body>
 </html>
