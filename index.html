@@ -594,6 +594,10 @@
         text-decoration: none;
         cursor: pointer;
       }
+
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
   </head>
 
@@ -609,8 +613,8 @@
           <div class="page-wrapper">
             <div class="container">
               <a href="#resume">Resume</a>
-              <a href="#work">Work</a>
-              <a href="#contact">contact</a>
+              <a href="#work" class="scroll-to-work">Work</a>
+              <a href="#contact" class="scroll-to-contact">contact</a>
             </div>
           </div>
         </nav>
@@ -915,6 +919,31 @@
       resizeCanvas();
       animate();
     </script>
+    <script>
+      // Smooth scroll to sections
+      document.querySelector('.scroll-to-work').addEventListener('click', (e) => {
+        e.preventDefault();
+        const workSection = document.querySelector('.work-section');
+        const yOffset = -100; // Offset for fixed nav
+        const y = workSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+      });
+
+      document.querySelector('.scroll-to-contact').addEventListener('click', (e) => {
+        e.preventDefault();
+        const footerSection = document.querySelector('.footer-text-section');
+        const yOffset = -100;
+        const y = footerSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+      });
+    </script>
+
 
   </body>
 </html>
