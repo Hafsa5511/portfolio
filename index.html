@@ -616,277 +616,297 @@
       #constellation.visible {
         opacity: 1;
       }
-      
-      
-   .music-player-wrapper {
-  position: absolute;
-  top: 2500px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 100px;
-  z-index: 15;
-  gap: 20px;
-}
 
-.player-label {
-  font-size: 14px;
-  color: rgba(255, 215, 0, 0.8);
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: 1px;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  animation: label-glow 3s ease-in-out infinite;
-}
 
-.label-icon {
-  font-size: 10px;
-  animation: icon-twinkle 2s ease-in-out infinite;
-}
+      .music-player-wrapper {
+        position: absolute;
+        top: 2500px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 100px;
+        z-index: 15;
+        gap: 20px;
+      }
 
-@keyframes label-glow {
-  0%, 100% { 
-    opacity: 0.7;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-  }
-  50% { 
-    opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-  }
-}
+      .player-label {
+        font-size: 14px;
+        color: rgba(255, 215, 0, 0.8);
+        font-weight: 300;
+        font-style: italic;
+        letter-spacing: 1px;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        animation: label-glow 3s ease-in-out infinite;
+      }
 
-@keyframes icon-twinkle {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
+      .label-icon {
+        font-size: 10px;
+        animation: icon-twinkle 2s ease-in-out infinite;
+      }
 
-.music-player {
-  width: 500px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 25px;
-  padding: 25px;
-  display: flex;
-  gap: 20px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-              0 0 60px rgba(255, 215, 0, 0.1);
-  transition: all 0.3s ease;
-}
+      @keyframes label-glow {
 
-.music-player:hover {
-  border-color: rgba(255, 215, 0, 0.4);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-              0 0 80px rgba(255, 215, 0, 0.2);
-}
+        0%,
+        100% {
+          opacity: 0.7;
+          text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
 
-.player-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-}
+        50% {
+          opacity: 1;
+          text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+      }
 
-.player-particle {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(255, 215, 0, 0.6);
-  border-radius: 50%;
-  box-shadow: 0 0 4px rgba(255, 215, 0, 0.8);
-}
+      @keyframes icon-twinkle {
 
-.player-connection {
-  position: absolute;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0) 0%, rgba(255, 215, 0, 0.4) 50%, rgba(255, 215, 0, 0) 100%);
-  transform-origin: left center;
-  pointer-events: none;
-}
+        0%,
+        100% {
+          opacity: 0.5;
+        }
 
-@keyframes particle-pulse {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.5); }
-}
+        50% {
+          opacity: 1;
+        }
+      }
 
-.album-art {
-  width: 100px;
-  height: 100px;
-  border-radius: 15px;
-  overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
-  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
-}
+      .music-player {
+        width: 500px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-radius: 25px;
+        padding: 25px;
+        display: flex;
+        gap: 20px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+          0 0 60px rgba(255, 215, 0, 0.1);
+        transition: all 0.3s ease;
+      }
 
-.album-art img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+      .music-player:hover {
+        border-color: rgba(255, 215, 0, 0.4);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+          0 0 80px rgba(255, 215, 0, 0.2);
+      }
 
-.album-sparkles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
+      .player-glow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+      }
 
-.player-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+      .player-particle {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: rgba(255, 215, 0, 0.6);
+        border-radius: 50%;
+        box-shadow: 0 0 4px rgba(255, 215, 0, 0.8);
+      }
 
-.track-info {
-  text-align: left;
-}
+      .player-connection {
+        position: absolute;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255, 215, 0, 0) 0%, rgba(255, 215, 0, 0.4) 50%, rgba(255, 215, 0, 0) 100%);
+        transform-origin: left center;
+        pointer-events: none;
+      }
 
-.track-title {
-  font-size: 16px;
-  font-weight: 500;
-  color: #fff;
-  margin-bottom: 5px;
-  letter-spacing: 0.5px;
-}
+      @keyframes particle-pulse {
 
-.track-artist {
-  font-size: 13px;
-  color: rgba(255, 215, 0, 0.7);
-  font-weight: 300;
-}
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
 
-.player-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
+        50% {
+          opacity: 0.8;
+          transform: scale(1.5);
+        }
+      }
 
-.control-btn {
-  background: transparent;
-  border: none;
-  color: rgba(255, 215, 0, 0.9);
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
+      .album-art {
+        width: 100px;
+        height: 100px;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0;
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+      }
 
-.control-btn:hover {
-  color: rgba(255, 215, 0, 1);
-  background: rgba(255, 215, 0, 0.1);
-  transform: scale(1.1);
-}
+      .album-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-.play-btn {
-  width: 45px;
-  height: 45px;
-  background: rgba(255, 215, 0, 0.2);
-  border: 2px solid rgba(255, 215, 0, 0.5);
-}
+      .album-sparkles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
 
-.play-btn:hover {
-  background: rgba(255, 215, 0, 0.3);
-  border-color: rgba(255, 215, 0, 0.8);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-}
+      .player-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
 
-.progress-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+      .track-info {
+        text-align: left;
+      }
 
-.time-display {
-  font-size: 11px;
-  color: rgba(255, 215, 0, 0.6);
-  font-weight: 300;
-  min-width: 35px;
-}
+      .track-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 5px;
+        letter-spacing: 0.5px;
+      }
 
-.progress-bar {
-  flex: 1;
-  height: 6px;
-  background: rgba(255, 215, 0, 0.1);
-  border-radius: 3px;
-  position: relative;
-  cursor: pointer;
-  overflow: visible;
-}
+      .track-artist {
+        font-size: 13px;
+        color: rgba(255, 215, 0, 0.7);
+        font-weight: 300;
+      }
 
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, rgba(255, 215, 0, 0.8), rgba(255, 215, 0, 1));
-  border-radius: 3px;
-  width: 0%;
-  position: relative;
-  transition: width 0.1s linear;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
+      .player-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
 
-.progress-handle {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  background: rgba(255, 215, 0, 1);
-  border-radius: 50%;
-  left: 0%;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+      .control-btn {
+        background: transparent;
+        border: none;
+        color: rgba(255, 215, 0, 0.9);
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
 
-.progress-bar:hover .progress-handle {
-  opacity: 1;
-}
+      .control-btn:hover {
+        color: rgba(255, 215, 0, 1);
+        background: rgba(255, 215, 0, 0.1);
+        transform: scale(1.1);
+      }
 
-.music-player-sparkle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: rgba(255, 215, 0, 0.8);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: player-sparkle-float 2s ease-out forwards;
-  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
-}
+      .play-btn {
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 215, 0, 0.2);
+        border: 2px solid rgba(255, 215, 0, 0.5);
+      }
 
-@keyframes player-sparkle-float {
-  0% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-60px) scale(0.3);
-  }
-}
+      .play-btn:hover {
+        background: rgba(255, 215, 0, 0.3);
+        border-color: rgba(255, 215, 0, 0.8);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+      }
+
+      .progress-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .time-display {
+        font-size: 11px;
+        color: rgba(255, 215, 0, 0.6);
+        font-weight: 300;
+        min-width: 35px;
+      }
+
+      .progress-bar {
+        flex: 1;
+        height: 6px;
+        background: rgba(255, 215, 0, 0.1);
+        border-radius: 3px;
+        position: relative;
+        cursor: pointer;
+        overflow: visible;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, rgba(255, 215, 0, 0.8), rgba(255, 215, 0, 1));
+        border-radius: 3px;
+        width: 0%;
+        position: relative;
+        transition: width 0.1s linear;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      }
+
+      .progress-handle {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        background: rgba(255, 215, 0, 1);
+        border-radius: 50%;
+        left: 0%;
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .progress-bar:hover .progress-handle {
+        opacity: 1;
+      }
+
+      .music-player-sparkle {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 215, 0, 0.8);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: player-sparkle-float 2s ease-out forwards;
+        box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+      }
+
+      @keyframes player-sparkle-float {
+        0% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateY(-60px) scale(0.3);
+        }
+      }
     </style>
   </head>
 
   <body>
     <canvas id="constellation"></canvas>
 
- 
+
     <canvas id="starfield"></canvas>
 
     <div class="custom-cursor"></div>
@@ -991,70 +1011,70 @@
             </div>
           </a>
         </div>
-        
-   
-     <div class="music-player-wrapper">
-  <div class="player-label">
-    <span class="label-icon">✦</span>
-    song that I vibe to during quiet nights
-    <span class="label-icon">✦</span>
-  </div>
-  
-  <div class="music-player">
-    <div class="player-glow"></div>
-    
-    <!-- Hidden audio element -->
-    <audio id="audioPlayer" src="videoplayback.mp3"></audio>
-    
-    <div class="album-art">
-      <img src="album-cover.jpg" alt="Album Cover" id="albumCover">
-      <div class="album-sparkles"></div>
-    </div>
-    
-    <div class="player-content">
-      <div class="track-info">
-        <div class="track-title" id="trackTitle">Heavy</div>
-        <div class="track-artist" id="trackArtist">The Marías</div>
-      </div>
-      
-      <div class="player-controls">
-        <button class="control-btn" id="prevBtn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="19 20 9 12 19 4 19 20"></polygon>
-            <line x1="5" y1="19" x2="5" y2="5"></line>
-          </svg>
-        </button>
-        
-        <button class="control-btn play-btn" id="playBtn">
-          <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-            <rect x="6" y="4" width="4" height="16"></rect>
-            <rect x="14" y="4" width="4" height="16"></rect>
-          </svg>
-        </button>
-        
-        <button class="control-btn" id="nextBtn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="5 4 15 12 5 20 5 4"></polygon>
-            <line x1="19" y1="5" x2="19" y2="19"></line>
-          </svg>
-        </button>
-      </div>
-      
-      <div class="progress-container">
-        <span class="time-display" id="currentTime">0:00</span>
-        <div class="progress-bar">
-          <div class="progress-fill" id="progressFill"></div>
-          <div class="progress-handle" id="progressHandle"></div>
+
+
+        <div class="music-player-wrapper">
+          <div class="player-label">
+            <span class="label-icon">✦</span>
+            song that I vibe to during quiet nights
+            <span class="label-icon">✦</span>
+          </div>
+
+          <div class="music-player">
+            <div class="player-glow"></div>
+
+            <!-- Hidden audio element -->
+            <audio id="audioPlayer" src="videoplayback.mp3"></audio>
+
+            <div class="album-art">
+              <img src="album-cover.jpg" alt="Album Cover" id="albumCover">
+              <div class="album-sparkles"></div>
+            </div>
+
+            <div class="player-content">
+              <div class="track-info">
+                <div class="track-title" id="trackTitle">Heavy</div>
+                <div class="track-artist" id="trackArtist">The Marías</div>
+              </div>
+
+              <div class="player-controls">
+                <button class="control-btn" id="prevBtn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                    <line x1="5" y1="19" x2="5" y2="5"></line>
+                  </svg>
+                </button>
+
+                <button class="control-btn play-btn" id="playBtn">
+                  <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                  </svg>
+                </button>
+
+                <button class="control-btn" id="nextBtn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="progress-container">
+                <span class="time-display" id="currentTime">0:00</span>
+                <div class="progress-bar">
+                  <div class="progress-fill" id="progressFill"></div>
+                  <div class="progress-handle" id="progressHandle"></div>
+                </div>
+                <span class="time-display" id="duration">0:00</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <span class="time-display" id="duration">0:00</span>
-      </div>
-    </div>
-  </div>
-</div>
-        
+
 
         <div class="footer-image-section">
           <img src="footer.png" alt="Footer decoration">
@@ -1419,207 +1439,207 @@
       resizeConstellation();
       animateConstellation();
     </script>
-    
-  <script>
-  // Music Player Functionality
-  const audioPlayer = document.getElementById('audioPlayer');
-  const playBtn = document.getElementById('playBtn');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const progressFill = document.getElementById('progressFill');
-  const progressHandle = document.getElementById('progressHandle');
-  const progressBar = document.querySelector('.progress-bar');
-  const currentTimeDisplay = document.getElementById('currentTime');
-  const durationDisplay = document.getElementById('duration');
-  const playIcon = document.querySelector('.play-icon');
-  const pauseIcon = document.querySelector('.pause-icon');
-  
-  let isPlaying = false;
-  
-  // Player constellation effect
-  const playerGlow = document.querySelector('.player-glow');
-  let playerParticles = [];
-  let playerConnections = [];
-  
-  function initPlayerParticles() {
-    playerParticles = [];
-    const numParticles = 12;
-    
-    for (let i = 0; i < numParticles; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'player-particle';
-      
-      const x = Math.random() * 100;
-      const y = Math.random() * 100;
-      
-      particle.style.left = x + '%';
-      particle.style.top = y + '%';
-      particle.style.animation = `particle-pulse ${2 + Math.random() * 2}s ease-in-out infinite`;
-      particle.style.animationDelay = Math.random() * 2 + 's';
-      
-      playerGlow.appendChild(particle);
-      
-      playerParticles.push({
-        element: particle,
-        x: x,
-        y: y
-      });
-    }
-  }
-  
-  function createPlayerConnection() {
-    if (playerParticles.length < 2) return;
-    
-    const p1 = playerParticles[Math.floor(Math.random() * playerParticles.length)];
-    const p2 = playerParticles[Math.floor(Math.random() * playerParticles.length)];
-    
-    if (p1 === p2) return;
-    
-    const dx = p2.x - p1.x;
-    const dy = p2.y - p1.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    
-    if (distance < 60) {
-      const connection = document.createElement('div');
-      connection.className = 'player-connection';
-      
-      const angle = Math.atan2(dy, dx);
-      
-      connection.style.left = p1.x + '%';
-      connection.style.top = p1.y + '%';
-      connection.style.width = distance + '%';
-      connection.style.transform = `rotate(${angle}rad)`;
-      connection.style.opacity = '0';
-      
-      playerGlow.appendChild(connection);
-      
-      // Fade in
-      let opacity = 0;
-      const fadeIn = setInterval(() => {
-        opacity += 0.02;
-        if (opacity >= 0.4) {
-          clearInterval(fadeIn);
-          // Fade out after delay
-          setTimeout(() => {
-            const fadeOut = setInterval(() => {
-              opacity -= 0.01;
-              connection.style.opacity = opacity;
-              if (opacity <= 0) {
-                clearInterval(fadeOut);
-                connection.remove();
-              }
-            }, 30);
-          }, 800);
-        } else {
-          connection.style.opacity = opacity;
+
+    <script>
+      // Music Player Functionality
+      const audioPlayer = document.getElementById('audioPlayer');
+      const playBtn = document.getElementById('playBtn');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const progressFill = document.getElementById('progressFill');
+      const progressHandle = document.getElementById('progressHandle');
+      const progressBar = document.querySelector('.progress-bar');
+      const currentTimeDisplay = document.getElementById('currentTime');
+      const durationDisplay = document.getElementById('duration');
+      const playIcon = document.querySelector('.play-icon');
+      const pauseIcon = document.querySelector('.pause-icon');
+
+      let isPlaying = false;
+
+      // Player constellation effect
+      const playerGlow = document.querySelector('.player-glow');
+      let playerParticles = [];
+      let playerConnections = [];
+
+      function initPlayerParticles() {
+        playerParticles = [];
+        const numParticles = 12;
+
+        for (let i = 0; i < numParticles; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'player-particle';
+
+          const x = Math.random() * 100;
+          const y = Math.random() * 100;
+
+          particle.style.left = x + '%';
+          particle.style.top = y + '%';
+          particle.style.animation = `particle-pulse ${2 + Math.random() * 2}s ease-in-out infinite`;
+          particle.style.animationDelay = Math.random() * 2 + 's';
+
+          playerGlow.appendChild(particle);
+
+          playerParticles.push({
+            element: particle,
+            x: x,
+            y: y
+          });
         }
-      }, 30);
-    }
-  }
-  
-  // Create connections when playing
-  setInterval(() => {
-    if (isPlaying && Math.random() > 0.4) {
-      createPlayerConnection();
-    }
-  }, 600);
-  
-  initPlayerParticles();
-  
-  // Format time display
-  function formatTime(seconds) {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  }
-  
-  // Update duration when metadata loads
-  audioPlayer.addEventListener('loadedmetadata', () => {
-    durationDisplay.textContent = formatTime(audioPlayer.duration);
-  });
-  
-  // Update progress as song plays
-  audioPlayer.addEventListener('timeupdate', () => {
-    const progress = audioPlayer.currentTime / audioPlayer.duration;
-    progressFill.style.width = (progress * 100) + '%';
-    progressHandle.style.left = (progress * 100) + '%';
-    currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
-  });
-  
-  // Handle song end
-  audioPlayer.addEventListener('ended', () => {
-    isPlaying = false;
-    playIcon.style.display = 'block';
-    pauseIcon.style.display = 'none';
-  });
-  
-  // Play/Pause toggle
-  playBtn.addEventListener('click', () => {
-    if (isPlaying) {
-      audioPlayer.pause();
-      playIcon.style.display = 'block';
-      pauseIcon.style.display = 'none';
-    } else {
-      audioPlayer.play();
-      playIcon.style.display = 'none';
-      pauseIcon.style.display = 'block';
-      createPlayerSparkles();
-    }
-    isPlaying = !isPlaying;
-  });
-  
-  // Progress bar click
-  progressBar.addEventListener('click', (e) => {
-    const rect = progressBar.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const percentage = clickX / rect.width;
-    
-    audioPlayer.currentTime = percentage * audioPlayer.duration;
-  });
-  
-  // Previous button - restart song
-  prevBtn.addEventListener('click', () => {
-    audioPlayer.currentTime = 0;
-    createPlayerSparkles();
-  });
-  
-  // Next button - you can add logic for playlist here
-  nextBtn.addEventListener('click', () => {
-    audioPlayer.currentTime = 0;
-    audioPlayer.pause();
-    isPlaying = false;
-    playIcon.style.display = 'block';
-    pauseIcon.style.display = 'none';
-    createPlayerSparkles();
-  });
-  
-  // Create sparkles around album art
-  function createPlayerSparkles() {
-    const albumArt = document.querySelector('.album-sparkles');
-    const sparkle = document.createElement('div');
-    sparkle.className = 'music-player-sparkle';
-    
-    const randomX = Math.random() * 100;
-    const randomY = Math.random() * 100;
-    
-    sparkle.style.left = randomX + '%';
-    sparkle.style.top = randomY + '%';
-    
-    albumArt.appendChild(sparkle);
-    
-    setTimeout(() => sparkle.remove(), 2000);
-  }
-  
-  // Create sparkles periodically when playing
-  setInterval(() => {
-    if (isPlaying) {
-      createPlayerSparkles();
-    }
-  }, 500);
-  
-  // Initialize display
-  currentTimeDisplay.textContent = '0:00';
-  durationDisplay.textContent = '0:00';
-</script>
+      }
+
+      function createPlayerConnection() {
+        if (playerParticles.length < 2) return;
+
+        const p1 = playerParticles[Math.floor(Math.random() * playerParticles.length)];
+        const p2 = playerParticles[Math.floor(Math.random() * playerParticles.length)];
+
+        if (p1 === p2) return;
+
+        const dx = p2.x - p1.x;
+        const dy = p2.y - p1.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 60) {
+          const connection = document.createElement('div');
+          connection.className = 'player-connection';
+
+          const angle = Math.atan2(dy, dx);
+
+          connection.style.left = p1.x + '%';
+          connection.style.top = p1.y + '%';
+          connection.style.width = distance + '%';
+          connection.style.transform = `rotate(${angle}rad)`;
+          connection.style.opacity = '0';
+
+          playerGlow.appendChild(connection);
+
+          // Fade in
+          let opacity = 0;
+          const fadeIn = setInterval(() => {
+            opacity += 0.02;
+            if (opacity >= 0.4) {
+              clearInterval(fadeIn);
+              // Fade out after delay
+              setTimeout(() => {
+                const fadeOut = setInterval(() => {
+                  opacity -= 0.01;
+                  connection.style.opacity = opacity;
+                  if (opacity <= 0) {
+                    clearInterval(fadeOut);
+                    connection.remove();
+                  }
+                }, 30);
+              }, 800);
+            } else {
+              connection.style.opacity = opacity;
+            }
+          }, 30);
+        }
+      }
+
+      // Create connections when playing
+      setInterval(() => {
+        if (isPlaying && Math.random() > 0.4) {
+          createPlayerConnection();
+        }
+      }, 600);
+
+      initPlayerParticles();
+
+      // Format time display
+      function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+      }
+
+      // Update duration when metadata loads
+      audioPlayer.addEventListener('loadedmetadata', () => {
+        durationDisplay.textContent = formatTime(audioPlayer.duration);
+      });
+
+      // Update progress as song plays
+      audioPlayer.addEventListener('timeupdate', () => {
+        const progress = audioPlayer.currentTime / audioPlayer.duration;
+        progressFill.style.width = (progress * 100) + '%';
+        progressHandle.style.left = (progress * 100) + '%';
+        currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+      });
+
+      // Handle song end
+      audioPlayer.addEventListener('ended', () => {
+        isPlaying = false;
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+      });
+
+      // Play/Pause toggle
+      playBtn.addEventListener('click', () => {
+        if (isPlaying) {
+          audioPlayer.pause();
+          playIcon.style.display = 'block';
+          pauseIcon.style.display = 'none';
+        } else {
+          audioPlayer.play();
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'block';
+          createPlayerSparkles();
+        }
+        isPlaying = !isPlaying;
+      });
+
+      // Progress bar click
+      progressBar.addEventListener('click', (e) => {
+        const rect = progressBar.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const percentage = clickX / rect.width;
+
+        audioPlayer.currentTime = percentage * audioPlayer.duration;
+      });
+
+      // Previous button - restart song
+      prevBtn.addEventListener('click', () => {
+        audioPlayer.currentTime = 0;
+        createPlayerSparkles();
+      });
+
+      // Next button - you can add logic for playlist here
+      nextBtn.addEventListener('click', () => {
+        audioPlayer.currentTime = 0;
+        audioPlayer.pause();
+        isPlaying = false;
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        createPlayerSparkles();
+      });
+
+      // Create sparkles around album art
+      function createPlayerSparkles() {
+        const albumArt = document.querySelector('.album-sparkles');
+        const sparkle = document.createElement('div');
+        sparkle.className = 'music-player-sparkle';
+
+        const randomX = Math.random() * 100;
+        const randomY = Math.random() * 100;
+
+        sparkle.style.left = randomX + '%';
+        sparkle.style.top = randomY + '%';
+
+        albumArt.appendChild(sparkle);
+
+        setTimeout(() => sparkle.remove(), 2000);
+      }
+
+      // Create sparkles periodically when playing
+      setInterval(() => {
+        if (isPlaying) {
+          createPlayerSparkles();
+        }
+      }, 500);
+
+      // Initialize display
+      currentTimeDisplay.textContent = '0:00';
+      durationDisplay.textContent = '0:00';
+    </script>
   </body>
 </html>
