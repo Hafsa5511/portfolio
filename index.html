@@ -900,6 +900,72 @@
           transform: translateY(-60px) scale(0.3);
         }
       }
+      
+      /* Gallery Button */
+.gallery-button-wrapper {
+  position: absolute;
+  top: 2300px;
+  left: 100px;
+  z-index: 15;
+}
+
+.gallery-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 35px;
+  background: rgba(255, 169, 88, 0.05);
+  border: 2px solid rgba(255, 169, 88, 0.3);
+  border-radius: 30px;
+  color: rgba(255, 169, 88, 0.9);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 30px rgba(255, 169, 88, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-button:hover {
+  background: rgba(255, 169, 88, 0.1);
+  border-color: rgba(255, 169, 88, 0.6);
+  box-shadow: 0 0 50px rgba(255, 169, 88, 0.3);
+  transform: translateY(-3px);
+}
+
+.gallery-icon {
+  font-size: 20px;
+  animation: icon-float 3s ease-in-out infinite;
+}
+
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.gallery-sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 169, 88, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: gallery-sparkle-float 2s ease-out forwards;
+  box-shadow: 0 0 8px rgba(255, 169, 88, 0.6);
+}
+
+@keyframes gallery-sparkle-float {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--sparkle-x), var(--sparkle-y)) scale(0.3);
+  }
+}
     </style>
   </head>
 
@@ -1011,7 +1077,13 @@
             </div>
           </a>
         </div>
-
+<div class="gallery-button-wrapper">
+  <a href="gallery.html" class="gallery-button" id="galleryBtn">
+    <span class="gallery-icon">✦</span>
+    Traditional Art Gallery
+    <span class="gallery-icon">✦</span>
+  </a>
+</div>
 
         <div class="music-player-wrapper">
           <div class="player-label">
@@ -1648,5 +1720,38 @@
       currentTimeDisplay.textContent = '0:00';
       durationDisplay.textContent = '0:00';
     </script>
+    
+    <script>
+  // Gallery button sparkle effect
+  const galleryBtn = document.getElementById('galleryBtn');
+  
+  galleryBtn.addEventListener('mouseenter', () => {
+    const interval = setInterval(() => {
+      createGallerySparkle();
+    }, 100);
+    
+    galleryBtn.addEventListener('mouseleave', () => {
+      clearInterval(interval);
+    }, { once: true });
+  });
+  
+  function createGallerySparkle() {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'gallery-sparkle';
+    
+    const randomX = (Math.random() - 0.5) * 100;
+    const randomY = -50 - Math.random() * 50;
+    
+    sparkle.style.setProperty('--sparkle-x', randomX + 'px');
+    sparkle.style.setProperty('--sparkle-y', randomY + 'px');
+    
+    sparkle.style.left = Math.random() * 100 + '%';
+    sparkle.style.top = Math.random() * 100 + '%';
+    
+    galleryBtn.appendChild(sparkle);
+    
+    setTimeout(() => sparkle.remove(), 2000);
+  }
+</script>
   </body>
 </html>
