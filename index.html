@@ -977,7 +977,7 @@
 
     <div class="page-wrapper">
 
-      <!-- NAV — added available pill -->
+      <!-- NAV -->
       <nav>
         <div class="page-wrapper">
           <div class="container">
@@ -1001,7 +1001,6 @@
       <div class="hero">
         <div class="container">
           <h1 class="signature">Hafsa Abbasi</h1>
-          <!-- NEW: role line -->
           <p class="role-tagline">UX/UI &nbsp;·&nbsp; Graphic Design &nbsp;·&nbsp; Illustration</p>
         </div>
       </div>
@@ -1016,13 +1015,13 @@
 
       <div class="container" style="position:relative;">
         <p>Skilled in Adobe Softwares, Figma, and HTML/CSS</p>
-        <!-- NEW: email CTA near intro -->
-        <a href="/cdn-cgi/l/email-protection#8ee6efe8fdefe0efeaebebe3efececeffde7cee9e3efe7e2a0ede1e3" class="hero-cta">
+        <!-- ✏️ REPLACE YOUR-EMAIL@EXAMPLE.COM with your real email in BOTH places below -->
+        <a href="mailto:hafsanadeemabbasi@gmail.com" class="hero-cta">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
             <polyline points="22,6 12,13 2,6" />
           </svg>
-          <span class="__cf_email__" data-cfemail="f098919683919e919495959d919292918399b0979d91999cde939f9d">[email&#160;protected]</span>
+          hafsanadeemabbasi@gmail.com
         </a>
       </div>
 
@@ -1153,7 +1152,7 @@
 
         </div>
 
-        <!-- Gallery button unchanged -->
+        <!-- Gallery button -->
         <div class="gallery-button-wrapper">
           <a href="https://hafsa5511.github.io/gallery-/index.html" class="gallery-button" id="galleryBtn">
             <span class="gallery-icon">✦</span>
@@ -1162,7 +1161,7 @@
           </a>
         </div>
 
-        <!-- Music player unchanged -->
+        <!-- Music player -->
         <div class="music-player-wrapper">
           <div class="player-label">
             <span class="label-icon">✦</span>
@@ -1235,9 +1234,9 @@
               <div class="footer-left">
                 <a href="https://www.instagram.com/hafsoo_art/" target="_blank">@hafsoo_art</a>
                 <div class="footer-email">
-                  <a href="/cdn-cgi/l/email-protection#94fcf5f2e7f5faf5f0f1f1f9f5f6f6f5e7fdd4f3f9f5fdf8baf7fbf9"><span class="__cf_email__" data-cfemail="a9c1c8cfdac8c7c8cdccccc4c8cbcbc8dac0e9cec4c8c0c587cac6c4">[email&#160;protected]</span></a>
+                  <!-- ✏️ REPLACE YOUR-EMAIL@EXAMPLE.COM with your real email in BOTH places below -->
+                  <a href="mailto:hafsanadeemabbasi@gmail.com">hafsanadeemabbasi@gmail.com</a>
                 </div>
-                <!-- NEW: résumé link in footer too -->
                 <a href="https://drive.google.com/file/d/1qAdBLp0ktgkLX3rXbam_IYYsDcH9RKaw/view?usp=sharing" class="footer-resume" target="_blank">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
@@ -1264,8 +1263,6 @@
       </div>
     </div>
 
-    <!-- ALL ORIGINAL SCRIPTS UNCHANGED -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
       const workItems = document.querySelectorAll('.work-item');
       workItems.forEach(item => {
@@ -1667,5 +1664,22 @@
     <script>
       const galleryBtn = document.getElementById('galleryBtn');
       galleryBtn.addEventListener('mouseenter', () => {
-            const interval = setInterval(() => createGallerySparkle(), 100);
-            galleryBtn.addEventListener('mouseleave', () => clearInterval(interval)
+        const interval = setInterval(() => createGallerySparkle(), 100);
+        galleryBtn.addEventListener('mouseleave', () => clearInterval(interval));
+      });
+
+      function createGallerySparkle() {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'gallery-sparkle';
+        const x = (Math.random() - 0.5) * 100;
+        const y = -(Math.random() * 60 + 20);
+        sparkle.style.setProperty('--sparkle-x', x + 'px');
+        sparkle.style.setProperty('--sparkle-y', y + 'px');
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        galleryBtn.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 2000);
+      }
+    </script>
+  </body>
+</html>
