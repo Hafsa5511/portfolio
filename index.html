@@ -49,15 +49,8 @@
       }
 
       @keyframes sparkle-fade {
-        0% {
-          opacity: 1;
-          transform: scale(1);
-        }
-
-        100% {
-          opacity: 0;
-          transform: scale(0.3);
-        }
+        0% { opacity: 1; transform: scale(1); }
+        100% { opacity: 0; transform: scale(0.3); }
       }
 
       .cursor-ring.hover {
@@ -109,6 +102,66 @@
         src: url('TheScientist-L3EyW.ttf') format('truetype');
       }
 
+      /* ── MUTE BUTTON ── */
+      .mute-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9990;
+        width: 48px;
+        height: 48px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer !important;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+        color: rgba(255, 215, 0, 0.85);
+      }
+
+      .mute-btn:hover {
+        border-color: rgba(255, 215, 0, 0.7);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.35);
+        background: rgba(0, 0, 0, 0.8);
+        color: rgba(255, 215, 0, 1);
+        transform: scale(1.08);
+      }
+
+      .mute-btn svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+
+      /* tooltip on mute button */
+      .mute-btn::before {
+        content: attr(data-tip);
+        position: absolute;
+        right: 56px;
+        bottom: 50%;
+        transform: translateY(50%);
+        background: rgba(0,0,0,0.75);
+        color: rgba(255,215,0,0.85);
+        font-family: 'Ysabeau Infant', sans-serif;
+        font-size: 11px;
+        letter-spacing: 1px;
+        padding: 5px 12px;
+        border-radius: 20px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s;
+        border: 1px solid rgba(255,215,0,0.2);
+      }
+
+      .mute-btn:hover::before {
+        opacity: 1;
+      }
+
       /* ── NAV ── */
       nav {
         position: fixed;
@@ -149,7 +202,6 @@
         color: rgba(255, 169, 88, 1);
       }
 
-      /* available pill — tucked into nav right side */
       .avail-pill {
         margin-left: auto;
         margin-right: 120px;
@@ -186,17 +238,8 @@
       }
 
       @keyframes dot-pulse {
-
-        0%,
-        100% {
-          opacity: 0.5;
-          transform: scale(1);
-        }
-
-        50% {
-          opacity: 1;
-          transform: scale(1.3);
-        }
+        0%, 100% { opacity: 0.5; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.3); }
       }
 
       /* ── HERO ── */
@@ -215,7 +258,6 @@
         margin-left: 25px;
       }
 
-      /* NEW: role tagline under signature */
       .role-tagline {
         font-size: 13px;
         font-weight: 300;
@@ -242,7 +284,6 @@
         line-height: 2.5;
       }
 
-      /* NEW: email CTA near hero */
       .hero-cta {
         margin-left: 25px;
         margin-top: 24px;
@@ -338,7 +379,6 @@
         max-width: 900px;
       }
 
-      /* card wrapper — changed to block for label below */
       .work-item {
         width: 330px;
         height: auto;
@@ -387,7 +427,6 @@
         box-shadow: 0 0 40px rgba(255, 105, 180, 0.4);
       }
 
-      /* hover overlay stays */
       .work-overlay {
         position: absolute;
         top: 50%;
@@ -417,7 +456,6 @@
         line-height: 1.5;
       }
 
-      /* NEW: always-visible label below thumbnail */
       .work-label {
         padding: 12px 4px 0;
         display: flex;
@@ -482,23 +520,10 @@
       }
 
       @keyframes float {
-        0% {
-          transform: translateY(0) translateX(0);
-          opacity: 0;
-        }
-
-        10% {
-          opacity: 1;
-        }
-
-        90% {
-          opacity: 1;
-        }
-
-        100% {
-          transform: translateY(-100px) translateX(var(--float-x));
-          opacity: 0;
-        }
+        0% { transform: translateY(0) translateX(0); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(-100px) translateX(var(--float-x)); opacity: 0; }
       }
 
       /* ── FOOTER ── */
@@ -531,8 +556,6 @@
         gap: 80px;
       }
 
-      .footer-left {}
-
       .footer-left a {
         color: rgba(255, 169, 88, 1);
         text-decoration: none;
@@ -560,7 +583,6 @@
         opacity: 0.7;
       }
 
-      /* NEW: résumé link in footer */
       .footer-resume {
         margin-top: 20px;
         display: inline-flex;
@@ -592,7 +614,7 @@
         color: rgba(255, 169, 88, 1);
       }
 
-      /* ── MUSIC PLAYER (unchanged) ── */
+      /* ── MUSIC PLAYER ── */
       .music-player-wrapper {
         position: absolute;
         top: 2500px;
@@ -625,29 +647,13 @@
       }
 
       @keyframes label-glow {
-
-        0%,
-        100% {
-          opacity: 0.7;
-          text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        50% {
-          opacity: 1;
-          text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-        }
+        0%, 100% { opacity: 0.7; text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+        50% { opacity: 1; text-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
       }
 
       @keyframes icon-twinkle {
-
-        0%,
-        100% {
-          opacity: 0.5;
-        }
-
-        50% {
-          opacity: 1;
-        }
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
       }
 
       .music-player {
@@ -698,17 +704,8 @@
       }
 
       @keyframes particle-pulse {
-
-        0%,
-        100% {
-          opacity: 0.3;
-          transform: scale(1);
-        }
-
-        50% {
-          opacity: 0.8;
-          transform: scale(1.5);
-        }
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.5); }
       }
 
       .album-art {
@@ -863,18 +860,11 @@
       }
 
       @keyframes player-sparkle-float {
-        0% {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-
-        100% {
-          opacity: 0;
-          transform: translateY(-60px) scale(0.3);
-        }
+        0% { opacity: 1; transform: translateY(0) scale(1); }
+        100% { opacity: 0; transform: translateY(-60px) scale(0.3); }
       }
 
-      /* ── GALLERY BUTTON (unchanged) ── */
+      /* ── GALLERY BUTTON ── */
       .gallery-button-wrapper {
         position: absolute;
         top: 2300px;
@@ -914,15 +904,8 @@
       }
 
       @keyframes icon-float {
-
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-
-        50% {
-          transform: translateY(-5px);
-        }
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
       }
 
       .gallery-sparkle {
@@ -937,15 +920,8 @@
       }
 
       @keyframes gallery-sparkle-float {
-        0% {
-          opacity: 1;
-          transform: translate(0, 0) scale(1);
-        }
-
-        100% {
-          opacity: 0;
-          transform: translate(var(--sparkle-x), var(--sparkle-y)) scale(0.3);
-        }
+        0% { opacity: 1; transform: translate(0, 0) scale(1); }
+        100% { opacity: 0; transform: translate(var(--sparkle-x), var(--sparkle-y)) scale(0.3); }
       }
 
       #constellation {
@@ -974,6 +950,22 @@
     <canvas id="starfield"></canvas>
     <div class="custom-cursor"></div>
     <div class="cursor-ring"></div>
+
+    <!-- FLOATING MUTE BUTTON -->
+    <button class="mute-btn" id="muteBtn" data-tip="Mute music" aria-label="Mute background music">
+      <!-- Sound ON icon -->
+      <svg id="soundOnIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+      <!-- Sound OFF icon (hidden initially) -->
+      <svg id="soundOffIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
+    </button>
 
     <div class="page-wrapper">
 
@@ -1015,7 +1007,6 @@
 
       <div class="container" style="position:relative;">
         <p>Skilled in Adobe Softwares, Figma, and HTML/CSS</p>
-        <!-- ✏️ REPLACE YOUR-EMAIL@EXAMPLE.COM with your real email in BOTH places below -->
         <a href="mailto:hafsanadeemabbasi@gmail.com" class="hero-cta">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -1170,7 +1161,8 @@
           </div>
           <div class="music-player">
             <div class="player-glow"></div>
-            <audio id="audioPlayer" src="videoplayback.mp3"></audio>
+            <!-- loop attribute added for background autoplay loop -->
+            <audio id="audioPlayer" src="videoplayback.mp3" loop></audio>
             <div class="album-art">
               <img src="album-cover.jpg" alt="Album Cover" id="albumCover">
               <div class="album-sparkles"></div>
@@ -1188,10 +1180,10 @@
                   </svg>
                 </button>
                 <button class="control-btn play-btn" id="playBtn">
-                  <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                   </svg>
-                  <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                  <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <rect x="6" y="4" width="4" height="16"></rect>
                     <rect x="14" y="4" width="4" height="16"></rect>
                   </svg>
@@ -1234,7 +1226,6 @@
               <div class="footer-left">
                 <a href="https://www.instagram.com/hafsoo_art/" target="_blank">@hafsoo_art</a>
                 <div class="footer-email">
-                  <!-- ✏️ REPLACE YOUR-EMAIL@EXAMPLE.COM with your real email in BOTH places below -->
                   <a href="mailto:hafsanadeemabbasi@gmail.com">hafsanadeemabbasi@gmail.com</a>
                 </div>
                 <a href="https://drive.google.com/file/d/1ptK7M6ZxqVvOsbRl38UCiBqtFr3Wo9cx/view?usp=sharing" class="footer-resume" target="_blank">
@@ -1264,6 +1255,7 @@
     </div>
 
     <script>
+      // ── WORK ITEM PARTICLES ──
       const workItems = document.querySelectorAll('.work-item');
       workItems.forEach(item => {
         const particlesContainer = item.querySelector('.particles');
@@ -1290,13 +1282,12 @@
         setTimeout(() => particle.remove(), duration * 1000);
       }
     </script>
+
     <script>
+      // ── CUSTOM CURSOR ──
       const cursor = document.querySelector('.custom-cursor');
       const cursorRing = document.querySelector('.cursor-ring');
-      let mouseX = 0,
-        mouseY = 0,
-        ringX = 0,
-        ringY = 0;
+      let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
       document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
@@ -1333,7 +1324,9 @@
         });
       });
     </script>
+
     <script>
+      // ── STARFIELD ──
       const canvas = document.getElementById('starfield');
       const ctx = canvas.getContext('2d');
       let stars = [];
@@ -1353,8 +1346,7 @@
           stars.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height * 3,
-            size,
-            speed: Math.random() * 0.5 + 0.1,
+            size, speed: Math.random() * 0.5 + 0.1,
             brightness: Math.random() * 0.3 + 0.25,
             twinkle: Math.random() * Math.PI * 2,
             twinkleSpeed: Math.random() * 0.02 + 0.01
@@ -1366,11 +1358,8 @@
         ctx.fillStyle = '#000';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         let opacity = 1;
-        if (scrollY < 1300) {
-          return;
-        } else if (scrollY < 1500) {
-          opacity = (scrollY - 1300) / 200;
-        }
+        if (scrollY < 1300) return;
+        else if (scrollY < 1500) opacity = (scrollY - 1300) / 200;
         stars.forEach(star => {
           const yPos = (star.y - scrollY * star.speed) % (canvas.height + 500);
           star.twinkle += star.twinkleSpeed;
@@ -1392,37 +1381,31 @@
         drawStars();
         requestAnimationFrame(animate);
       }
-      window.addEventListener('scroll', () => {
-        scrollY = window.scrollY;
-      });
+      window.addEventListener('scroll', () => { scrollY = window.scrollY; });
       window.addEventListener('resize', resizeCanvas);
       resizeCanvas();
       animate();
     </script>
+
     <script>
+      // ── SMOOTH SCROLL ──
       document.querySelector('.scroll-to-work').addEventListener('click', (e) => {
         e.preventDefault();
         const s = document.querySelector('.work-section');
-        window.scrollTo({
-          top: s.getBoundingClientRect().top + window.pageYOffset - 100,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: s.getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' });
       });
       document.querySelector('.scroll-to-contact').addEventListener('click', (e) => {
         e.preventDefault();
         const s = document.querySelector('.footer-text-section');
-        window.scrollTo({
-          top: s.getBoundingClientRect().top + window.pageYOffset - 100,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: s.getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' });
       });
     </script>
+
     <script>
+      // ── CONSTELLATION ──
       const constCanvas = document.getElementById('constellation');
       const constCtx = constCanvas.getContext('2d');
-      let cParticles = [];
-      let connections = [];
-      let isVisible = false;
+      let cParticles = [], connections = [], isVisible = false;
 
       function resizeConstellation() {
         constCanvas.width = window.innerWidth;
@@ -1450,27 +1433,14 @@
         const p2 = cParticles[Math.floor(Math.random() * cParticles.length)];
         if (p1 === p2) return;
         const d = Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
-        if (d < 300) {
-          connections.push({
-            p1,
-            p2,
-            opacity: 0,
-            growing: true,
-            maxOpacity: 0.6
-          });
-        }
+        if (d < 300) connections.push({ p1, p2, opacity: 0, growing: true, maxOpacity: 0.6 });
       }
 
       function drawConstellation() {
         constCtx.clearRect(0, 0, constCanvas.width, constCanvas.height);
         const cs = window.scrollY;
-        if (cs < 1300 && !isVisible) {
-          constCanvas.classList.add('visible');
-          isVisible = true;
-        } else if (cs >= 1300 && isVisible) {
-          constCanvas.classList.remove('visible');
-          isVisible = false;
-        }
+        if (cs < 1300 && !isVisible) { constCanvas.classList.add('visible'); isVisible = true; }
+        else if (cs >= 1300 && isVisible) { constCanvas.classList.remove('visible'); isVisible = false; }
         cParticles.forEach(p => {
           p.twinkle += p.twinkleSpeed;
           const tf = 0.8 + Math.sin(p.twinkle) * 0.2;
@@ -1485,16 +1455,8 @@
         });
         for (let i = connections.length - 1; i >= 0; i--) {
           const conn = connections[i];
-          if (conn.growing) {
-            conn.opacity += 0.01;
-            if (conn.opacity >= conn.maxOpacity) conn.growing = false;
-          } else {
-            conn.opacity -= 0.005;
-            if (conn.opacity <= 0) {
-              connections.splice(i, 1);
-              continue;
-            }
-          }
+          if (conn.growing) { conn.opacity += 0.01; if (conn.opacity >= conn.maxOpacity) conn.growing = false; }
+          else { conn.opacity -= 0.005; if (conn.opacity <= 0) { connections.splice(i, 1); continue; } }
           constCtx.beginPath();
           constCtx.moveTo(conn.p1.x, conn.p1.y);
           constCtx.lineTo(conn.p2.x, conn.p2.y);
@@ -1504,19 +1466,16 @@
         }
       }
 
-      function animateConst() {
-        drawConstellation();
-        requestAnimationFrame(animateConst);
-      }
-      setInterval(() => {
-        if (isVisible && Math.random() > 0.1) createConnection();
-      }, 100);
+      function animateConst() { drawConstellation(); requestAnimationFrame(animateConst); }
+      setInterval(() => { if (isVisible && Math.random() > 0.1) createConnection(); }, 100);
       window.addEventListener('resize', resizeConstellation);
       window.addEventListener('scroll', drawConstellation);
       resizeConstellation();
       animateConst();
     </script>
+
     <script>
+      // ── AUDIO PLAYER + AUTOPLAY ──
       const audioPlayer = document.getElementById('audioPlayer');
       const playBtn = document.getElementById('playBtn');
       const prevBtn = document.getElementById('prevBtn');
@@ -1528,28 +1487,72 @@
       const durationDisplay = document.getElementById('duration');
       const playIcon = document.querySelector('.play-icon');
       const pauseIcon = document.querySelector('.pause-icon');
+      const muteBtn = document.getElementById('muteBtn');
+      const soundOnIcon = document.getElementById('soundOnIcon');
+      const soundOffIcon = document.getElementById('soundOffIcon');
+
+      // Start playing on page load (browsers require a user gesture,
+      // so we attempt autoplay and also listen for the first interaction)
       let isPlaying = false;
+      let isMuted = false;
+
+      function startPlayback() {
+        audioPlayer.play().then(() => {
+          isPlaying = true;
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'block';
+        }).catch(() => {
+          // Autoplay blocked — wait for first user interaction
+        });
+      }
+
+      // Attempt autoplay immediately
+      startPlayback();
+
+      // Fallback: start on first user interaction if autoplay was blocked
+      function onFirstInteraction() {
+        if (!isPlaying) startPlayback();
+        document.removeEventListener('click', onFirstInteraction);
+        document.removeEventListener('keydown', onFirstInteraction);
+        document.removeEventListener('scroll', onFirstInteraction);
+        document.removeEventListener('touchstart', onFirstInteraction);
+      }
+      document.addEventListener('click', onFirstInteraction);
+      document.addEventListener('keydown', onFirstInteraction);
+      document.addEventListener('scroll', onFirstInteraction);
+      document.addEventListener('touchstart', onFirstInteraction);
+
+      // ── MUTE BUTTON ──
+      muteBtn.addEventListener('click', () => {
+        isMuted = !isMuted;
+        audioPlayer.muted = isMuted;
+        if (isMuted) {
+          soundOnIcon.style.display = 'none';
+          soundOffIcon.style.display = 'block';
+          muteBtn.setAttribute('data-tip', 'Unmute music');
+        } else {
+          soundOnIcon.style.display = 'block';
+          soundOffIcon.style.display = 'none';
+          muteBtn.setAttribute('data-tip', 'Mute music');
+        }
+      });
+
+      // ── PLAYER GLOW PARTICLES ──
       const playerGlow = document.querySelector('.player-glow');
       let playerParticles = [];
 
       function initPlayerParticles() {
-        playerParticles = [];
-        const n = 12;
-        for (let i = 0; i < n; i++) {
+        for (let i = 0; i < 12; i++) {
           const p = document.createElement('div');
           p.className = 'player-particle';
           const x = Math.random() * 100;
           const y = Math.random() * 100;
           p.style.left = x + '%';
           p.style.top = y + '%';
-          p.style.animation = `particle-pulse ${2+Math.random()*2}s ease-in-out infinite`;
+          p.style.animation = `particle-pulse ${2 + Math.random() * 2}s ease-in-out infinite`;
           p.style.animationDelay = Math.random() * 2 + 's';
           playerGlow.appendChild(p);
-          playerParticles.push({
-            element: p,
-            x,
-            y
-          });
+          playerParticles.push({ element: p, x, y });
         }
       }
 
@@ -1558,8 +1561,7 @@
         const p1 = playerParticles[Math.floor(Math.random() * playerParticles.length)];
         const p2 = playerParticles[Math.floor(Math.random() * playerParticles.length)];
         if (p1 === p2) return;
-        const dx = p2.x - p1.x;
-        const dy = p2.y - p1.y;
+        const dx = p2.x - p1.x, dy = p2.y - p1.y;
         const d = Math.sqrt(dx * dx + dy * dy);
         if (d < 60) {
           const c = document.createElement('div');
@@ -1580,10 +1582,7 @@
                 const fo = setInterval(() => {
                   op -= 0.01;
                   c.style.opacity = op;
-                  if (op <= 0) {
-                    clearInterval(fo);
-                    c.remove();
-                  }
+                  if (op <= 0) { clearInterval(fo); c.remove(); }
                 }, 30);
               }, 800);
             } else {
@@ -1592,57 +1591,61 @@
           }, 30);
         }
       }
-      setInterval(() => {
-        if (isPlaying && Math.random() > 0.4) createPlayerConnection();
-      }, 600);
+
+      setInterval(() => { if (isPlaying && Math.random() > 0.4) createPlayerConnection(); }, 600);
       initPlayerParticles();
 
       function formatTime(s) {
         const m = Math.floor(s / 60);
         const sec = Math.floor(s % 60);
-        return `${m}:${sec.toString().padStart(2,'0')}`;
+        return `${m}:${sec.toString().padStart(2, '0')}`;
       }
+
       audioPlayer.addEventListener('loadedmetadata', () => {
         durationDisplay.textContent = formatTime(audioPlayer.duration);
       });
+
       audioPlayer.addEventListener('timeupdate', () => {
         const p = audioPlayer.currentTime / audioPlayer.duration;
         progressFill.style.width = (p * 100) + '%';
         progressHandle.style.left = (p * 100) + '%';
         currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
       });
+
+      // loop attribute handles looping, but just in case:
       audioPlayer.addEventListener('ended', () => {
-        isPlaying = false;
-        playIcon.style.display = 'block';
-        pauseIcon.style.display = 'none';
+        audioPlayer.currentTime = 0;
+        audioPlayer.play();
       });
+
+      // ── PLAY/PAUSE BUTTON in player ──
       playBtn.addEventListener('click', () => {
         if (isPlaying) {
           audioPlayer.pause();
           playIcon.style.display = 'block';
           pauseIcon.style.display = 'none';
+          isPlaying = false;
         } else {
           audioPlayer.play();
           playIcon.style.display = 'none';
           pauseIcon.style.display = 'block';
+          isPlaying = true;
           createPlayerSparkles();
         }
-        isPlaying = !isPlaying;
       });
+
       progressBar.addEventListener('click', (e) => {
         const r = progressBar.getBoundingClientRect();
         audioPlayer.currentTime = ((e.clientX - r.left) / r.width) * audioPlayer.duration;
       });
+
       prevBtn.addEventListener('click', () => {
         audioPlayer.currentTime = 0;
         createPlayerSparkles();
       });
+
       nextBtn.addEventListener('click', () => {
         audioPlayer.currentTime = 0;
-        audioPlayer.pause();
-        isPlaying = false;
-        playIcon.style.display = 'block';
-        pauseIcon.style.display = 'none';
         createPlayerSparkles();
       });
 
@@ -1655,13 +1658,14 @@
         a.appendChild(s);
         setTimeout(() => s.remove(), 2000);
       }
-      setInterval(() => {
-        if (isPlaying) createPlayerSparkles();
-      }, 500);
+
+      setInterval(() => { if (isPlaying) createPlayerSparkles(); }, 500);
       currentTimeDisplay.textContent = '0:00';
       durationDisplay.textContent = '0:00';
     </script>
+
     <script>
+      // ── GALLERY BUTTON SPARKLES ──
       const galleryBtn = document.getElementById('galleryBtn');
       galleryBtn.addEventListener('mouseenter', () => {
         const interval = setInterval(() => createGallerySparkle(), 100);
