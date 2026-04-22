@@ -102,65 +102,6 @@
         src: url('TheScientist-L3EyW.ttf') format('truetype');
       }
 
-      /* ── MUTE BUTTON ── */
-      .mute-btn {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        z-index: 9990;
-        width: 48px;
-        height: 48px;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 215, 0, 0.3);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer !important;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
-        color: rgba(255, 215, 0, 0.85);
-      }
-
-      .mute-btn:hover {
-        border-color: rgba(255, 215, 0, 0.7);
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.35);
-        background: rgba(0, 0, 0, 0.8);
-        color: rgba(255, 215, 0, 1);
-        transform: scale(1.08);
-      }
-
-      .mute-btn svg {
-        width: 20px;
-        height: 20px;
-        flex-shrink: 0;
-      }
-
-      .mute-btn::before {
-        content: attr(data-tip);
-        position: absolute;
-        right: 56px;
-        bottom: 50%;
-        transform: translateY(50%);
-        background: rgba(0,0,0,0.75);
-        color: rgba(255,215,0,0.85);
-        font-family: 'Ysabeau Infant', sans-serif;
-        font-size: 11px;
-        letter-spacing: 1px;
-        padding: 5px 12px;
-        border-radius: 20px;
-        white-space: nowrap;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.2s;
-        border: 1px solid rgba(255,215,0,0.2);
-      }
-
-      .mute-btn:hover::before {
-        opacity: 1;
-      }
-
       /* ── NAV ── */
       nav {
         position: fixed;
@@ -632,7 +573,6 @@
         position: relative;
       }
 
-      /* The canvas container with a soft vignette border */
       .viz-canvas-wrap {
         position: relative;
         width: 520px;
@@ -640,7 +580,6 @@
         border-bottom: 1px solid rgba(255, 215, 0, 0.12);
       }
 
-      /* Horizontal center-line */
       .viz-canvas-wrap::before {
         content: '';
         position: absolute;
@@ -657,7 +596,6 @@
         pointer-events: none;
       }
 
-      /* Fade edges of visualizer */
       .viz-canvas-wrap::after {
         content: '';
         position: absolute;
@@ -677,7 +615,6 @@
         display: block;
       }
 
-      /* Ambient glow behind canvas */
       .viz-glow {
         position: absolute;
         inset: 0;
@@ -688,7 +625,6 @@
         z-index: 0;
       }
 
-      /* Controls row */
       .viz-controls {
         margin-top: 18px;
         display: flex;
@@ -739,7 +675,6 @@
         position: relative;
       }
 
-      /* Scrubber dot */
       .viz-progress-fill::after {
         content: '';
         position: absolute;
@@ -768,7 +703,6 @@
         text-align: right;
       }
 
-      /* Track info */
       .viz-track-info {
         margin-top: 14px;
         display: flex;
@@ -878,132 +812,110 @@
       html {
         scroll-behavior: smooth;
       }
+
       #intro-overlay {
-  position: fixed; inset: 0; background: #000; z-index: 99999;
-  display: flex; flex-direction: column; align-items: center;
-  justify-content: center; opacity: 1;
-  transition: opacity 0.9s ease-out;
-}
-#intro-overlay.fade-out { opacity: 0; pointer-events: none; }
+        position: fixed; inset: 0; background: #000; z-index: 99999;
+        display: flex; flex-direction: column; align-items: center;
+        justify-content: center; opacity: 1;
+        transition: opacity 0.9s ease-out;
+      }
+      #intro-overlay.fade-out { opacity: 0; pointer-events: none; }
 
-.intro-star {
-  position: absolute; border-radius: 50%; background: #fff;
-  animation: star-twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
-}
-@keyframes star-twinkle {
-  0%,100% { opacity: var(--dim, 0.2); transform: scale(1); }
-  50%     { opacity: var(--bright, 0.7); transform: scale(1.4); }
-}
-.intro-dust {
-  position: absolute; border-radius: 50%; background: rgba(255,215,0,0.35);
-  animation: dust-drift var(--ddur, 6s) ease-in-out infinite var(--ddelay, 0s);
-}
-@keyframes dust-drift {
-  0%,100% { opacity: 0; transform: translateY(0) scale(1); }
-  50%     { opacity: 1; transform: translateY(-12px) scale(1.2); }
-}
-.intro-glow {
-  position: absolute; width: 500px; height: 200px; border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(255,215,0,0.04) 0%, transparent 70%);
-  animation: glow-breathe 4s ease-in-out infinite; pointer-events: none;
-}
-@keyframes glow-breathe {
-  0%,100% { opacity: 0.5; transform: scale(1); }
-  50%     { opacity: 1;   transform: scale(1.08); }
-}
-.intro-name-wrap {
-  position: relative;
-  display: inline-block;
-  padding: 14px 24px;
-  z-index: 2;
-}
-
-.intro-name-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: #000;
-  transform-origin: right center;
-  animation: mask-slide 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
-}
-
-@keyframes mask-slide {
-  from { transform: scaleX(1); }
-  to   { transform: scaleX(0); }
-}
-
-.intro-name {
-  font-family: 'TheScientist', cursive;
-  font-size: 52px;
-  color: rgba(255, 169, 88, 1);
-  font-weight: 400;
-  white-space: nowrap;
-  /* remove the old animation from here entirely */
-}
-@keyframes name-reveal {
-  from { clip-path: inset(0 100% 0 0); opacity: 0.5; }
-  to   { clip-path: inset(0 0% 0 0);   opacity: 1; }
-}
-.intro-rule {
-  width: 0; height: 1px; margin: 16px 0 14px; z-index: 2;
-  background: linear-gradient(90deg, transparent, rgba(255,169,88,0.5), transparent);
-  animation: rule-grow 0.6s ease-out 1.5s both;
-}
-@keyframes rule-grow { from { width: 0; } to { width: 260px; } }
-.intro-tagline {
-  font-size: 11px; font-weight: 300; color: rgba(255,169,88,0.45);
-  letter-spacing: 4px; text-transform: uppercase; opacity: 0; z-index: 2;
-  animation: tag-fade 0.7s ease-out 1.8s forwards;
-}
-@keyframes tag-fade {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+      .intro-star {
+        position: absolute; border-radius: 50%; background: #fff;
+        animation: star-twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
+      }
+      @keyframes star-twinkle {
+        0%,100% { opacity: var(--dim, 0.2); transform: scale(1); }
+        50%     { opacity: var(--bright, 0.7); transform: scale(1.4); }
+      }
+      .intro-dust {
+        position: absolute; border-radius: 50%; background: rgba(255,215,0,0.35);
+        animation: dust-drift var(--ddur, 6s) ease-in-out infinite var(--ddelay, 0s);
+      }
+      @keyframes dust-drift {
+        0%,100% { opacity: 0; transform: translateY(0) scale(1); }
+        50%     { opacity: 1; transform: translateY(-12px) scale(1.2); }
+      }
+      .intro-glow {
+        position: absolute; width: 500px; height: 200px; border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(255,215,0,0.04) 0%, transparent 70%);
+        animation: glow-breathe 4s ease-in-out infinite; pointer-events: none;
+      }
+      @keyframes glow-breathe {
+        0%,100% { opacity: 0.5; transform: scale(1); }
+        50%     { opacity: 1;   transform: scale(1.08); }
+      }
+      .intro-name-wrap {
+        position: relative;
+        display: inline-block;
+        padding: 14px 24px;
+        z-index: 2;
+      }
+      .intro-name-wrap::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: #000;
+        transform-origin: right center;
+        animation: mask-slide 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+      }
+      @keyframes mask-slide {
+        from { transform: scaleX(1); }
+        to   { transform: scaleX(0); }
+      }
+      .intro-name {
+        font-family: 'TheScientist', cursive;
+        font-size: 52px;
+        color: rgba(255, 169, 88, 1);
+        font-weight: 400;
+        white-space: nowrap;
+      }
+      .intro-rule {
+        width: 0; height: 1px; margin: 16px 0 14px; z-index: 2;
+        background: linear-gradient(90deg, transparent, rgba(255,169,88,0.5), transparent);
+        animation: rule-grow 0.6s ease-out 1.5s both;
+      }
+      @keyframes rule-grow { from { width: 0; } to { width: 260px; } }
+      .intro-tagline {
+        font-size: 11px; font-weight: 300; color: rgba(255,169,88,0.45);
+        letter-spacing: 4px; text-transform: uppercase; opacity: 0; z-index: 2;
+        animation: tag-fade 0.7s ease-out 1.8s forwards;
+      }
+      @keyframes tag-fade {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
     </style>
   </head>
   <body>
     
     <div id="intro-overlay">
-  <div class="intro-star" style="width:1px;height:1px;top:12%;left:8%;  --dur:2.8s;--delay:0s;  --dim:0.15;--bright:0.6;"></div>
-  <div class="intro-star" style="width:2px;height:2px;top:20%;left:22%; --dur:3.5s;--delay:0.4s;--dim:0.2; --bright:0.8;"></div>
-  <div class="intro-star" style="width:1px;height:1px;top:8%; left:50%; --dur:4s;  --delay:1s;  --dim:0.1; --bright:0.5;"></div>
-  <div class="intro-star" style="width:2px;height:2px;top:15%;left:72%; --dur:2.5s;--delay:0.2s;--dim:0.25;--bright:0.7;"></div>
-  <div class="intro-star" style="width:1px;height:1px;top:30%;left:88%; --dur:3.2s;--delay:0.8s;--dim:0.15;--bright:0.55;"></div>
-  <div class="intro-star" style="width:2px;height:2px;top:78%;left:14%; --dur:3.8s;--delay:0.3s;--dim:0.2; --bright:0.65;"></div>
-  <div class="intro-star" style="width:2px;height:2px;top:70%;left:60%; --dur:3.4s;--delay:0.6s;--dim:0.2; --bright:0.7;"></div>
-  <div class="intro-star" style="width:1px;height:1px;top:88%;left:80%; --dur:4.2s;--delay:1.5s;--dim:0.15;--bright:0.55;"></div>
-  <div class="intro-star" style="width:2px;height:2px;top:25%;left:65%; --dur:4.4s;--delay:0.7s;--dim:0.15;--bright:0.5;"></div>
-  <div class="intro-star" style="width:1.5px;height:1.5px;top:5%;left:38%;--dur:3.3s;--delay:0.2s;--dim:0.18;--bright:0.7;"></div>
-  <div class="intro-dust" style="width:2px;height:2px;top:44%;left:43%;--ddur:5s;--ddelay:0.2s;"></div>
-  <div class="intro-dust" style="width:1.5px;height:1.5px;top:54%;left:56%;--ddur:6.5s;--ddelay:1s;"></div>
-  <div class="intro-dust" style="width:2px;height:2px;top:48%;left:36%;--ddur:5.5s;--ddelay:0.8s;"></div>
-  <div class="intro-glow"></div>
-  <div class="intro-name-wrap">
-  <div class="intro-name">Hafsa Abbasi</div>
-</div>
-  <div class="intro-rule"></div>
-  <div class="intro-tagline">UX/UI &nbsp;·&nbsp; Graphic Design &nbsp;·&nbsp; Illustration</div>
-</div>
+      <div class="intro-star" style="width:1px;height:1px;top:12%;left:8%;  --dur:2.8s;--delay:0s;  --dim:0.15;--bright:0.6;"></div>
+      <div class="intro-star" style="width:2px;height:2px;top:20%;left:22%; --dur:3.5s;--delay:0.4s;--dim:0.2; --bright:0.8;"></div>
+      <div class="intro-star" style="width:1px;height:1px;top:8%; left:50%; --dur:4s;  --delay:1s;  --dim:0.1; --bright:0.5;"></div>
+      <div class="intro-star" style="width:2px;height:2px;top:15%;left:72%; --dur:2.5s;--delay:0.2s;--dim:0.25;--bright:0.7;"></div>
+      <div class="intro-star" style="width:1px;height:1px;top:30%;left:88%; --dur:3.2s;--delay:0.8s;--dim:0.15;--bright:0.55;"></div>
+      <div class="intro-star" style="width:2px;height:2px;top:78%;left:14%; --dur:3.8s;--delay:0.3s;--dim:0.2; --bright:0.65;"></div>
+      <div class="intro-star" style="width:2px;height:2px;top:70%;left:60%; --dur:3.4s;--delay:0.6s;--dim:0.2; --bright:0.7;"></div>
+      <div class="intro-star" style="width:1px;height:1px;top:88%;left:80%; --dur:4.2s;--delay:1.5s;--dim:0.15;--bright:0.55;"></div>
+      <div class="intro-star" style="width:2px;height:2px;top:25%;left:65%; --dur:4.4s;--delay:0.7s;--dim:0.15;--bright:0.5;"></div>
+      <div class="intro-star" style="width:1.5px;height:1.5px;top:5%;left:38%;--dur:3.3s;--delay:0.2s;--dim:0.18;--bright:0.7;"></div>
+      <div class="intro-dust" style="width:2px;height:2px;top:44%;left:43%;--ddur:5s;--ddelay:0.2s;"></div>
+      <div class="intro-dust" style="width:1.5px;height:1.5px;top:54%;left:56%;--ddur:6.5s;--ddelay:1s;"></div>
+      <div class="intro-dust" style="width:2px;height:2px;top:48%;left:36%;--ddur:5.5s;--ddelay:0.8s;"></div>
+      <div class="intro-glow"></div>
+      <div class="intro-name-wrap">
+        <div class="intro-name">Hafsa Abbasi</div>
+      </div>
+      <div class="intro-rule"></div>
+      <div class="intro-tagline">UX/UI &nbsp;·&nbsp; Graphic Design &nbsp;·&nbsp; Illustration</div>
+    </div>
+
     <canvas id="constellation"></canvas>
     <canvas id="starfield"></canvas>
     <div class="custom-cursor"></div>
     <div class="cursor-ring"></div>
-    
-    
-
-    <!-- FLOATING MUTE BUTTON -->
-    <button class="mute-btn" id="muteBtn" data-tip="Mute music" aria-label="Mute background music">
-      <svg id="soundOnIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-      </svg>
-      <svg id="soundOffIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-        <line x1="23" y1="9" x2="17" y2="15"></line>
-        <line x1="17" y1="9" x2="23" y2="15"></line>
-      </svg>
-    </button>
 
     <div class="page-wrapper">
 
@@ -1205,12 +1117,12 @@
             <!-- Controls row -->
             <div class="viz-controls">
               <button class="viz-play-btn" id="playBtn" aria-label="Play/Pause">
-                <!-- Play icon -->
-                <svg class="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none; margin-left:2px;">
+                <!-- Play icon (shown by default — starts paused) -->
+                <svg class="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-left:2px;">
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
-                <!-- Pause icon -->
-                <svg class="pause-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <!-- Pause icon (hidden until playing) -->
+                <svg class="pause-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
                   <rect x="6" y="4" width="4" height="16"></rect>
                   <rect x="14" y="4" width="4" height="16"></rect>
                 </svg>
@@ -1285,13 +1197,13 @@
     ══════════════════════════════════════════ -->
 
     <script>
-      
       // ── INTRO DISMISS ──
-setTimeout(() => {
-  const overlay = document.getElementById('intro-overlay');
-  overlay.classList.add('fade-out');
-  setTimeout(() => overlay.remove(), 950);
-}, 2800);
+      setTimeout(() => {
+        const overlay = document.getElementById('intro-overlay');
+        overlay.classList.add('fade-out');
+        setTimeout(() => overlay.remove(), 950);
+      }, 2800);
+
       // ── WORK ITEM PARTICLES ──
       const workItems = document.querySelectorAll('.work-item');
       workItems.forEach(item => {
@@ -1515,21 +1427,17 @@ setTimeout(() => {
       // ══════════════════════════════════════════
       // ETHEREAL AUDIO VISUALIZER
       // ══════════════════════════════════════════
-      const audioEl    = document.getElementById('audioPlayer');
-      const playBtn    = document.getElementById('playBtn');
-      const progressBar  = document.getElementById('progressBar');
-      const progressFill = document.getElementById('progressFill');
-      const timeDisplay  = document.getElementById('timeDisplay');
-      const playIcon   = document.querySelector('.play-icon');
-      const pauseIcon  = document.querySelector('.pause-icon');
-      const muteBtn    = document.getElementById('muteBtn');
-      const soundOnIcon  = document.getElementById('soundOnIcon');
-      const soundOffIcon = document.getElementById('soundOffIcon');
+      const audioEl     = document.getElementById('audioPlayer');
+      const playBtn     = document.getElementById('playBtn');
+      const progressBar   = document.getElementById('progressBar');
+      const progressFill  = document.getElementById('progressFill');
+      const timeDisplay   = document.getElementById('timeDisplay');
+      const playIcon    = document.querySelector('.play-icon');
+      const pauseIcon   = document.querySelector('.pause-icon');
 
       const vizCanvas = document.getElementById('vizCanvas');
       const vizCtx    = vizCanvas.getContext('2d');
 
-      // Size the canvas to its CSS container
       function sizeVizCanvas() {
         vizCanvas.width  = vizCanvas.offsetWidth;
         vizCanvas.height = vizCanvas.offsetHeight;
@@ -1537,7 +1445,7 @@ setTimeout(() => {
       sizeVizCanvas();
       window.addEventListener('resize', sizeVizCanvas);
 
-      // ── Web Audio API setup (lazy init on first play) ──
+      // ── Web Audio API setup (lazy init on first play button press) ──
       let audioCtx, analyser, sourceNode;
       let audioReady = false;
 
@@ -1545,7 +1453,7 @@ setTimeout(() => {
         if (audioReady) return;
         audioCtx  = new (window.AudioContext || window.webkitAudioContext)();
         analyser  = audioCtx.createAnalyser();
-        analyser.fftSize = 256;          // 128 frequency buckets
+        analyser.fftSize = 256;
         analyser.smoothingTimeConstant = 0.82;
         sourceNode = audioCtx.createMediaElementSource(audioEl);
         sourceNode.connect(analyser);
@@ -1563,20 +1471,16 @@ setTimeout(() => {
 
         const BAR_COUNT = 72;
         const GAP       = 2;
-        const totalGap  = GAP * (BAR_COUNT - 1);
-        const barW      = (W - totalGap) / BAR_COUNT;
+        const barW      = (W - GAP * (BAR_COUNT - 1)) / BAR_COUNT;
         const centerY   = H / 2;
 
         idlePhase += 0.018;
 
         for (let i = 0; i < BAR_COUNT; i++) {
-          // Gentle sine wave ripple — very short bars
           const t = idlePhase + i * 0.18;
-          const h = (Math.sin(t) * 0.5 + 0.5) * 14 + 3;   // 3–17 px half-height
-
+          const h = (Math.sin(t) * 0.5 + 0.5) * 14 + 3;
           const x = i * (barW + GAP);
 
-          // Gradient from center outward
           const grad = vizCtx.createLinearGradient(0, centerY - h, 0, centerY + h);
           grad.addColorStop(0,   'rgba(255,215,0,0.0)');
           grad.addColorStop(0.2, 'rgba(255,215,0,0.15)');
@@ -1600,47 +1504,39 @@ setTimeout(() => {
         const dataArr = new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(dataArr);
 
-        const BAR_COUNT = 72;
-        const GAP       = 2;
-        const totalGap  = GAP * (BAR_COUNT - 1);
-        const barW      = (W - totalGap) / BAR_COUNT;
-        const centerY   = H / 2;
-        const maxH      = H / 2 - 6;  // max half-height
-
-        // Use only the lower portion of the spectrum (more musical)
+        const BAR_COUNT  = 72;
+        const GAP        = 2;
+        const barW       = (W - GAP * (BAR_COUNT - 1)) / BAR_COUNT;
+        const centerY    = H / 2;
+        const maxH       = H / 2 - 6;
         const usableBins = Math.floor(dataArr.length * 0.65);
 
         for (let i = 0; i < BAR_COUNT; i++) {
           const binIdx = Math.floor((i / BAR_COUNT) * usableBins);
-          const raw    = dataArr[binIdx] / 255;          // 0–1
-          const h      = Math.max(raw * maxH, 2);        // minimum 2px half-height
-
-          const x = i * (barW + GAP);
-
-          // Brightness scales with amplitude
+          const raw    = dataArr[binIdx] / 255;
+          const h      = Math.max(raw * maxH, 2);
+          const x      = i * (barW + GAP);
           const alpha  = 0.25 + raw * 0.75;
-          const alphaT = alpha * 0.55;                   // tip alpha
+          const alphaT = alpha * 0.55;
 
-          // Gradient: transparent root → glowing body → bright tip
           const grad = vizCtx.createLinearGradient(0, centerY - h, 0, centerY + h);
-          grad.addColorStop(0,    `rgba(255,240,180,${alphaT})`);       // top tip
-          grad.addColorStop(0.18, `rgba(255,215,0,${alpha * 0.85})`);   // upper body
-          grad.addColorStop(0.5,  `rgba(200,140,20,${alpha * 0.4})`);   // center root
-          grad.addColorStop(0.82, `rgba(255,215,0,${alpha * 0.85})`);   // lower body
-          grad.addColorStop(1,    `rgba(255,240,180,${alphaT})`);       // bottom tip
+          grad.addColorStop(0,    `rgba(255,240,180,${alphaT})`);
+          grad.addColorStop(0.18, `rgba(255,215,0,${alpha * 0.85})`);
+          grad.addColorStop(0.5,  `rgba(200,140,20,${alpha * 0.4})`);
+          grad.addColorStop(0.82, `rgba(255,215,0,${alpha * 0.85})`);
+          grad.addColorStop(1,    `rgba(255,240,180,${alphaT})`);
 
           vizCtx.fillStyle = grad;
           vizCtx.beginPath();
           vizCtx.roundRect(x, centerY - h, barW, h * 2, barW / 2);
           vizCtx.fill();
 
-          // Glow on active bars
           if (raw > 0.35) {
-            vizCtx.shadowBlur   = 8 + raw * 14;
-            vizCtx.shadowColor  = `rgba(255,200,60,${raw * 0.5})`;
+            vizCtx.shadowBlur  = 8 + raw * 14;
+            vizCtx.shadowColor = `rgba(255,200,60,${raw * 0.5})`;
             vizCtx.fill();
-            vizCtx.shadowBlur   = 0;
-            vizCtx.shadowColor  = 'transparent';
+            vizCtx.shadowBlur  = 0;
+            vizCtx.shadowColor = 'transparent';
           }
         }
       }
@@ -1658,43 +1554,15 @@ setTimeout(() => {
       }
       renderFrame();
 
-      // ── Audio playback helpers (no AudioContext dependency) ──
+      // ── UI helpers ──
       function setPlayingUI(playing) {
         isPlaying = playing;
         playIcon.style.display  = playing ? 'none'  : 'block';
         pauseIcon.style.display = playing ? 'block' : 'none';
       }
 
-      function tryPlay() {
-        audioEl.play().then(() => setPlayingUI(true)).catch(() => {});
-      }
-
-      // 1. Attempt autoplay immediately (works if browser allows it)
-      tryPlay();
-
-      // 2. On the very first scroll, attempt play — scroll counts as a user
-      //    gesture for HTMLMediaElement but NOT for AudioContext, so we
-      //    deliberately do NOT call initAudioContext() here.
-      function onFirstScroll() {
-        tryPlay();
-        window.removeEventListener('scroll', onFirstScroll, true);
-      }
-      window.addEventListener('scroll', onFirstScroll, true);
-
-      // 3. On the first click/touch anywhere, also try play (belt-and-suspenders)
-      function onFirstClick() {
-        tryPlay();
-        document.removeEventListener('click',      onFirstClick);
-        document.removeEventListener('touchstart', onFirstClick);
-      }
-      document.addEventListener('click',      onFirstClick);
-      document.addEventListener('touchstart', onFirstClick);
-
-      // ── Play / Pause button ──
-      // AudioContext is ONLY initialized here — a real click is required to
-      // unlock it, so this is the one safe place to call initAudioContext().
+      // ── Play / Pause button — the only way audio starts ──
       playBtn.addEventListener('click', () => {
-        // Wire up the Web Audio visualizer on first button press
         initAudioContext();
         if (audioCtx.state === 'suspended') audioCtx.resume();
 
@@ -1703,22 +1571,6 @@ setTimeout(() => {
           setPlayingUI(false);
         } else {
           audioEl.play().then(() => setPlayingUI(true)).catch(() => {});
-        }
-      });
-
-      // ── Mute button ──
-      let isMuted = false;
-      muteBtn.addEventListener('click', () => {
-        isMuted = !isMuted;
-        audioEl.muted = isMuted;
-        if (isMuted) {
-          soundOnIcon.style.display  = 'none';
-          soundOffIcon.style.display = 'block';
-          muteBtn.setAttribute('data-tip', 'Unmute music');
-        } else {
-          soundOnIcon.style.display  = 'block';
-          soundOffIcon.style.display = 'none';
-          muteBtn.setAttribute('data-tip', 'Mute music');
         }
       });
 
@@ -1747,7 +1599,6 @@ setTimeout(() => {
         audioEl.currentTime = pct * audioEl.duration;
       });
 
-      // Loop fallback
       audioEl.addEventListener('ended', () => {
         audioEl.currentTime = 0;
         audioEl.play();
@@ -1766,8 +1617,7 @@ setTimeout(() => {
         const sparkle = document.createElement('div');
         sparkle.className = 'gallery-sparkle';
         const x = (Math.random() - 0.5) * 100;
-        
-         const y = (Math.random() - 0.5) * 80;
+        const y = (Math.random() - 0.5) * 80;
         sparkle.style.left = (20 + Math.random() * 60) + '%';
         sparkle.style.top  = (20 + Math.random() * 60) + '%';
         sparkle.style.setProperty('--sparkle-x', x + 'px');
