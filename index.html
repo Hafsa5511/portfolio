@@ -813,104 +813,12 @@
         scroll-behavior: smooth;
       }
 
-      #intro-overlay {
-        position: fixed; inset: 0; background: #000; z-index: 99999;
-        display: flex; flex-direction: column; align-items: center;
-        justify-content: center; opacity: 1;
-        transition: opacity 0.9s ease-out;
-      }
-      #intro-overlay.fade-out { opacity: 0; pointer-events: none; }
-
-      .intro-star {
-        position: absolute; border-radius: 50%; background: #fff;
-        animation: star-twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
-      }
-      @keyframes star-twinkle {
-        0%,100% { opacity: var(--dim, 0.2); transform: scale(1); }
-        50%     { opacity: var(--bright, 0.7); transform: scale(1.4); }
-      }
-      .intro-dust {
-        position: absolute; border-radius: 50%; background: rgba(255,215,0,0.35);
-        animation: dust-drift var(--ddur, 6s) ease-in-out infinite var(--ddelay, 0s);
-      }
-      @keyframes dust-drift {
-        0%,100% { opacity: 0; transform: translateY(0) scale(1); }
-        50%     { opacity: 1; transform: translateY(-12px) scale(1.2); }
-      }
-      .intro-glow {
-        position: absolute; width: 500px; height: 200px; border-radius: 50%;
-        background: radial-gradient(ellipse, rgba(255,215,0,0.04) 0%, transparent 70%);
-        animation: glow-breathe 4s ease-in-out infinite; pointer-events: none;
-      }
-      @keyframes glow-breathe {
-        0%,100% { opacity: 0.5; transform: scale(1); }
-        50%     { opacity: 1;   transform: scale(1.08); }
-      }
-      .intro-name-wrap {
-        position: relative;
-        display: inline-block;
-        padding: 14px 24px;
-        z-index: 2;
-      }
-      .intro-name-wrap::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: #000;
-        transform-origin: right center;
-        animation: mask-slide 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
-      }
-      @keyframes mask-slide {
-        from { transform: scaleX(1); }
-        to   { transform: scaleX(0); }
-      }
-      .intro-name {
-        font-family: 'TheScientist', cursive;
-        font-size: 52px;
-        color: rgba(255, 169, 88, 1);
-        font-weight: 400;
-        white-space: nowrap;
-      }
-      .intro-rule {
-        width: 0; height: 1px; margin: 16px 0 14px; z-index: 2;
-        background: linear-gradient(90deg, transparent, rgba(255,169,88,0.5), transparent);
-        animation: rule-grow 0.6s ease-out 1.5s both;
-      }
-      @keyframes rule-grow { from { width: 0; } to { width: 260px; } }
-      .intro-tagline {
-        font-size: 11px; font-weight: 300; color: rgba(255,169,88,0.45);
-        letter-spacing: 4px; text-transform: uppercase; opacity: 0; z-index: 2;
-        animation: tag-fade 0.7s ease-out 1.8s forwards;
-      }
-      @keyframes tag-fade {
-        from { opacity: 0; transform: translateY(6px); }
-        to   { opacity: 1; transform: translateY(0); }
-      }
+     
     </style>
   </head>
   <body>
     
-    <div id="intro-overlay">
-      <div class="intro-star" style="width:1px;height:1px;top:12%;left:8%;  --dur:2.8s;--delay:0s;  --dim:0.15;--bright:0.6;"></div>
-      <div class="intro-star" style="width:2px;height:2px;top:20%;left:22%; --dur:3.5s;--delay:0.4s;--dim:0.2; --bright:0.8;"></div>
-      <div class="intro-star" style="width:1px;height:1px;top:8%; left:50%; --dur:4s;  --delay:1s;  --dim:0.1; --bright:0.5;"></div>
-      <div class="intro-star" style="width:2px;height:2px;top:15%;left:72%; --dur:2.5s;--delay:0.2s;--dim:0.25;--bright:0.7;"></div>
-      <div class="intro-star" style="width:1px;height:1px;top:30%;left:88%; --dur:3.2s;--delay:0.8s;--dim:0.15;--bright:0.55;"></div>
-      <div class="intro-star" style="width:2px;height:2px;top:78%;left:14%; --dur:3.8s;--delay:0.3s;--dim:0.2; --bright:0.65;"></div>
-      <div class="intro-star" style="width:2px;height:2px;top:70%;left:60%; --dur:3.4s;--delay:0.6s;--dim:0.2; --bright:0.7;"></div>
-      <div class="intro-star" style="width:1px;height:1px;top:88%;left:80%; --dur:4.2s;--delay:1.5s;--dim:0.15;--bright:0.55;"></div>
-      <div class="intro-star" style="width:2px;height:2px;top:25%;left:65%; --dur:4.4s;--delay:0.7s;--dim:0.15;--bright:0.5;"></div>
-      <div class="intro-star" style="width:1.5px;height:1.5px;top:5%;left:38%;--dur:3.3s;--delay:0.2s;--dim:0.18;--bright:0.7;"></div>
-      <div class="intro-dust" style="width:2px;height:2px;top:44%;left:43%;--ddur:5s;--ddelay:0.2s;"></div>
-      <div class="intro-dust" style="width:1.5px;height:1.5px;top:54%;left:56%;--ddur:6.5s;--ddelay:1s;"></div>
-      <div class="intro-dust" style="width:2px;height:2px;top:48%;left:36%;--ddur:5.5s;--ddelay:0.8s;"></div>
-      <div class="intro-glow"></div>
-      <div class="intro-name-wrap">
-        <div class="intro-name">Hafsa Abbasi</div>
-      </div>
-      <div class="intro-rule"></div>
-      <div class="intro-tagline">UX/UI &nbsp;·&nbsp; Graphic Design &nbsp;·&nbsp; Illustration</div>
-    </div>
+    
 
     <canvas id="constellation"></canvas>
     <canvas id="starfield"></canvas>
@@ -1197,13 +1105,7 @@
     ══════════════════════════════════════════ -->
 
     <script>
-      // ── INTRO DISMISS ──
-      setTimeout(() => {
-        const overlay = document.getElementById('intro-overlay');
-        overlay.classList.add('fade-out');
-        setTimeout(() => overlay.remove(), 950);
-      }, 2800);
-
+    
       // ── WORK ITEM PARTICLES ──
       const workItems = document.querySelectorAll('.work-item');
       workItems.forEach(item => {
